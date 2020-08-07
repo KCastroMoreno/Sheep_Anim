@@ -1,0 +1,32 @@
+import maya.cmds as cmds
+
+Ch_grp = 'Jiji|'
+cmds.setAttr(Ch_grp+'Body|arms|R_arm.inheritsTransform', 0)
+
+COB = Ch_grp + 'Global_control|Torso_control',Ch_grp + 'Body|body',Ch_grp + 'Body|expression',Ch_grp + 'Body|ears',Ch_grp + 'Body|horns',Ch_grp + 'Global_control|L_leg_control',Ch_grp + 'Global_control|R_leg_control',Ch_grp + 'Body|legs|L_leg', Ch_grp + 'Body|legs|R_leg'
+
+
+cmds.select(COB[0],COB[1])
+cmds.ParentConstraint()
+
+cmds.select(COB[0],COB[2])
+cmds.ParentConstraint()
+
+cmds.select(COB[0],COB[3])
+cmds.ParentConstraint()
+
+cmds.select(COB[0],COB[4])
+cmds.ParentConstraint()
+
+#- 
+cmds.select(COB[5],COB[7])
+cmds.ParentConstraint()
+
+cmds.select(COB[6],COB[8])
+cmds.ParentConstraint()
+
+#- 
+
+
+cmds.setAttr(Ch_grp+'Body|arms|R_arm.inheritsTransform', 0)
+cmds.setAttr(Ch_grp+'Body|arms|L_arm.inheritsTransform', 0)
