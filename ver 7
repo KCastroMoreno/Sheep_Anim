@@ -1,0 +1,587 @@
+def GetCh():
+    cmds.refresh()
+    shapes = cmds.ls(sl=1)
+    cmds.textField('b2', edit=True, tx=shapes[0])
+
+
+def ParentALL():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+
+
+    COB = Ch_grp + '|Global_control|Torso_control',Ch_grp + '|Body|body',Ch_grp + '|Body|expression',Ch_grp + '|Body|ears',Ch_grp + '|Body|horns',Ch_grp + '|Global_control|L_leg_control',Ch_grp + '|Global_control|R_leg_control',Ch_grp + '|Body|legs|L_leg', Ch_grp + '|Body|legs|R_leg'
+    
+    
+    cmds.select(COB[0],COB[1])
+    cmds.ParentConstraint()
+    
+    cmds.select(COB[0],COB[2])
+    cmds.ParentConstraint()
+    
+    cmds.select(COB[0],COB[3])
+    cmds.ParentConstraint()
+    
+    cmds.select(COB[0],COB[4])
+    cmds.ParentConstraint()
+    
+    #- 
+    cmds.select(COB[5],COB[7])
+    cmds.ParentConstraint()
+    
+    cmds.select(COB[6],COB[8])
+    cmds.ParentConstraint()
+    
+    #- 
+    
+    
+    cmds.setAttr(Ch_grp+'|Body|arms|R_arm.inheritsTransform', 0)
+    cmds.setAttr(Ch_grp+'|Body|arms|L_arm.inheritsTransform', 0)
+    
+    cmds.select(Ch_grp+'|Global_control|Torso_control|R_armjoint|R_armjoint_01')
+    cmds.select(Ch_grp + '|Body|arms|R_arm', add = True)
+    cmds.bindSkin()
+
+    cmds.select(Ch_grp+'|Global_control|Torso_control|L_armjoint|L_armjoint_01')
+    cmds.select(Ch_grp + '|Body|arms|L_arm', add = True)
+    cmds.bindSkin()
+
+#----------------------------------
+
+def MouthEX_OFull():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[0]+'.translateZ', 0)
+
+def MouthEX_OHalf():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[1]+'.translateZ', 0)
+
+
+def MouthEX_Osurprise():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[2]+'.translateZ', 0)
+    
+
+def MouthEX_Osad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[3]+'.translateZ', 0)
+    
+    
+def MouthEX_Ohappy():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[4]+'.translateZ', 0)
+    
+def MouthEX_Normal():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[5]+'.translateZ', 0)
+    
+def MouthEX_Happy():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[6]+'.translateZ', 0)
+    
+def MouthEX_SemiHappy():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[7]+'.translateZ', 0)
+    
+def MouthEX_Sad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[8]+'.translateZ', 0)
+    
+def MouthEX_SemiSad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[9]+'.translateZ', 0)
+    
+def MouthEX_RUhm():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[10]+'.translateZ', 0)
+    
+def MouthEX_LUhm():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[11]+'.translateZ', 0)
+    
+def MouthEX_Tnormal():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[12]+'.translateZ', 0)
+    
+def MouthEX_Thappy():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[13]+'.translateZ', 0)
+
+def MouthEX_Tsad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    Mouth = Ch_grp+'|Body|expression|Mouth|Open|O_Full', Ch_grp+'|Body|expression|Mouth|Open|O_Half', Ch_grp+'|Body|expression|Mouth|Open|O_surprise', Ch_grp+'|Body|expression|Mouth|Open|Sad', Ch_grp+'|Body|expression|Mouth|Open|Happy',Ch_grp+'|Body|expression|Mouth|Neutral|Normal', Ch_grp+'|Body|expression|Mouth|Neutral|Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Happy', Ch_grp+'|Body|expression|Mouth|Neutral|Sad',Ch_grp+'|Body|expression|Mouth|Neutral|Semi_Sad', Ch_grp+'|Body|expression|Mouth|Neutral|R_Uhm', Ch_grp+'|Body|expression|Mouth|Neutral|L_Uhm',Ch_grp+'|Body|expression|Mouth|Teeth|Normal', Ch_grp+'|Body|expression|Mouth|Teeth|Happy', Ch_grp+'|Body|expression|Mouth|Teeth|Sad'
+    cmds.move( 0, 0, -1, Mouth, absolute=True )
+    cmds.setAttr(Mouth[14]+'.translateZ', 0)
+
+#####------------------------
+
+def R_eye_Normal():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    R_Eyes = Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Normal', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Sad', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Angry', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_TopLid', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_BotLid'
+    cmds.move( 0, 0, -1, R_Eyes, absolute=True )
+    cmds.setAttr(R_Eyes[0]+'.translateZ', 0)
+
+def L_eye_Normal():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    L_Eyes = Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Normal', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Sad', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Angry', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_TopLid', Ch_grp+'|Body|expression|Eye|L_eye|L__eye_BotLid'
+    cmds.move( 0, 0, -1, L_Eyes, absolute=True )
+    cmds.setAttr(L_Eyes[0]+'.translateZ', 0)
+
+
+def R_eye_Sad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    R_Eyes = Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Normal', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Sad', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Angry', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_TopLid', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_BotLid'
+    cmds.move( 0, 0, -1, R_Eyes, absolute=True )
+    cmds.setAttr(R_Eyes[1]+'.translateZ', 0)
+
+def L_eye_Sad():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    L_Eyes = Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Normal', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Sad', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Angry', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_TopLid', Ch_grp+'|Body|expression|Eye|L_eye|L__eye_BotLid'
+    cmds.move( 0, 0, -1, L_Eyes, absolute=True )
+    cmds.setAttr(L_Eyes[1]+'.translateZ', 0)
+
+def R_eye_Angry():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    R_Eyes = Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Normal', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Sad', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Angry', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_TopLid', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_BotLid'
+    cmds.move( 0, 0, -1, R_Eyes, absolute=True )
+    cmds.setAttr(R_Eyes[2]+'.translateZ', 0)
+
+def L_eye_Angry():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    L_Eyes = Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Normal', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Sad', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Angry', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_TopLid', Ch_grp+'|Body|expression|Eye|L_eye|L__eye_BotLid'
+    cmds.move( 0, 0, -1, L_Eyes, absolute=True )
+    cmds.setAttr(L_Eyes[2]+'.translateZ', 0)
+
+
+def R_eye_TopLid():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    R_Eyes = Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Normal', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Sad', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Angry', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_TopLid', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_BotLid'
+    cmds.move( 0, 0, -1, R_Eyes, absolute=True )
+    cmds.setAttr(R_Eyes[3]+'.translateZ', 0)
+
+def L_eye_TopLid():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    L_Eyes = Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Normal', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Sad', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Angry', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_TopLid', Ch_grp+'|Body|expression|Eye|L_eye|L__eye_BotLid'
+    cmds.move( 0, 0, -1, L_Eyes, absolute=True )
+    cmds.setAttr(L_Eyes[3]+'.translateZ', 0)
+
+def R_eye_BotLid():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    R_Eyes = Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Normal', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Sad', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_Angry', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_TopLid', Ch_grp+'|Body|expression|Eye|R_eye|R_eye_BotLid'
+    cmds.move( 0, 0, -1, R_Eyes, absolute=True )
+    cmds.setAttr(R_Eyes[4]+'.translateZ', 0)
+
+def L_eye_BotLid():
+    Ch_grp = cmds.textField('b2', q = 1, tx=1)
+    L_Eyes = Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Normal', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Sad', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_Angry', Ch_grp+'|Body|expression|Eye|L_eye|L_eye_TopLid', Ch_grp+'|Body|expression|Eye|L_eye|L__eye_BotLid'
+    cmds.move( 0, 0, -1, L_Eyes, absolute=True )
+    cmds.setAttr(L_Eyes[4]+'.translateZ', 0)
+    
+#----------------------------
+
+
+
+
+
+
+def JijiUI():
+	
+  winName = 'myWindows'
+  winTitle = 'JIJI Anim'
+  winWidth = 900
+  
+  ## --- Buttons
+  
+  button1W = 120
+  button1H = 30
+  
+  ## --- Form
+  edge = 15
+  bot  = 55
+  
+  b1s = 16
+  b2s = 16 + 16 
+  b3s = 16 + 16 + 16
+  b4s = 16 + 16 +16 + 16
+  b5s = 16 + 16 +16 + 16 + 16
+
+  
+ 
+  if cmds.window(winName, exists=True):
+      cmds.deleteUI(winName)
+  cmds.window(winName,menuBar = True, title= winTitle)
+  
+  
+  tabs = cmds.tabLayout(innerMarginWidth=5, innerMarginHeight=5)
+  
+  
+  ## --- Tab One
+  
+  cmds.formLayout('GetCHA',numberOfDivisions=100)
+  
+
+  cmds.button('b1', label = 'Get Character',h=30, c = 'GetCh()')
+  cmds.textField('b2', tx= '(no character selected)',h=30)
+  cmds.separator('b3',h=20)
+  cmds.button('b4', label = 'Parent All',h=30, c = 'ParentALL()')
+  
+  cmds.separator('g1', h= 20)
+  
+  cmds.button('g2', l = 'Previous Frame')
+  cmds.button('g3', l = 'Next Frame')
+  cmds.button('g4', l = 'Del KEY Frame')
+  cmds.button('g5', l = 'KEY Frame')
+  
+  
+  
+  ## --- FormLayout Tab 1
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b1','left',edge),('b1','top',10),('b2', 'top',10),('b2','right',edge)])
+  cmds.formLayout('GetCHA', edit=True, attachPosition=[('b1', 'right',5, 50),('b2', 'right',5, 100)])                     
+  cmds.formLayout('GetCHA', edit=True, attachControl=[('b2', 'left',5, 'b1')])
+  
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b3','left',edge),('b3','top',40),('b3', 'right',edge)])
+  
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b4','left',edge),('b4','top',65),('b4', 'right',edge)])
+  
+  
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('g1','left',5),('g1','top',100),('g1', 'right',5)])
+  
+  cmds.formLayout( 'GetCHA', edit=True, attachForm=[('g2','left',edge),('g2','top',130),('g3','top',130),('g3','right',edge)])
+  cmds.formLayout( 'GetCHA', edit=True, attachPosition=[('g2', 'right',5, 50),('g3', 'right',5, 100)])
+  cmds.formLayout( 'GetCHA', edit=True, attachControl=[('g3', 'left',5, 'g2')])
+  
+  cmds.formLayout( 'GetCHA', edit=True, attachForm=[('g4','left',edge),('g4','top',160),('g5','top',160),('g5','right',edge)])
+  cmds.formLayout( 'GetCHA', edit=True, attachPosition=[('g4', 'right',5, 50),('g5', 'right',5, 100)])
+  cmds.formLayout( 'GetCHA', edit=True, attachControl=[('g5', 'left',5, 'g4')])
+  
+ 
+  
+  cmds.setParent('..')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ## --- Tab 2
+
+  cmds.formLayout('ArmAnim',numberOfDivisions=100)
+  
+  cmds.text('b5', l = 'Arms')
+  cmds.text('b6', l = 'LEFT')
+  cmds.text('b7', l = 'RIGHT')
+  cmds.button('b8', l = 'C Shape',h=30)
+  cmds.button('b9', l = 'C Shape',h=30)
+  cmds.button('b10', l = 'L Shape',h=30)
+  cmds.button('b11', l = 'L Shape',h=30)
+  
+  cmds.separator('b12',h=20)
+  
+  cmds.button('b13', l = 'Previous Frame')
+  cmds.button('b14', l = 'Next Frame')
+  cmds.button('b15', l = 'Del KEY Frame')
+  cmds.button('b16', l = 'KEY Frame')
+  
+  cmds.separator('b17',h=20)
+  
+  cmds.text('b18', l = 'Legs')
+  cmds.text('b19', l = 'LEFT')
+  cmds.text('b20', l = 'RIGHT')
+  
+  cmds.button('b21', l = '-1',h=30)
+  cmds.button('b22', l = '0',h=30)
+  cmds.button('b23', l = '1',h=30)
+  
+  cmds.button('b24', l = '-1',h=30)
+  cmds.button('b25', l = '0',h=30)
+  cmds.button('b26', l = '1',h=30)
+  
+  cmds.separator('b27',h=20)
+  
+  cmds.button('b28', l = 'Previous Frame')
+  cmds.button('b29', l = 'Next Frame')
+  cmds.button('b30', l = 'Del KEY Frame')
+  cmds.button('b31', l = 'KEY Frame')
+
+
+  ## --- FormLayout Tab 2
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b5','left',edge),('b5','top',edge),('b5','right',edge)])
+
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b6','left',edge),('b6','top',40),('b7','top',40),('b7','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b6', 'right',5, 50),('b7', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b7', 'left',5, 'b6')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b8','left',edge),('b8','top',60),('b9','top',60),('b9','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b8', 'right',5, 50),('b9', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b9', 'left',5, 'b8')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b10','left',edge),('b10','top',100),('b11','top',100),('b11','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b10', 'right',5, 50),('b11', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b11', 'left',5, 'b10')])
+  
+  cmds.formLayout('ArmAnim', edit=True, attachForm=[('b12','left',5),('b12','top',130),('b12', 'right',5)])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b13','left',edge),('b13','top',150),('b14','top',150),('b14','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b13', 'right',5, 50),('b14', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b14', 'left',5, 'b13')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b15','left',edge),('b15','top',180),('b16','top',180),('b16','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b15', 'right',5, 50),('b16', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b16', 'left',5, 'b15')])
+
+
+
+  
+  
+  cmds.formLayout('ArmAnim', edit=True, attachForm=[('b17','left',5),('b17','top',200),('b17', 'right',5)])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b18','left',edge),('b18','top',220),('b18','right',edge)])
+
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b19','left',edge),('b19','top',240),('b20','top',240),('b20','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b19', 'right',5, 50),('b20', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b20', 'left',5, 'b19')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b21','left',edge),('b21','top',260),('b22','top',260),('b23','top',260),('b24','top',260),('b25','top',260),('b26','top',260),('b26','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b21', 'right',5, 16.7),('b22', 'right',5, 33.3),('b23', 'right',5, 50),('b24', 'right',5, 66.6),('b25', 'right',5, 83.3),('b26', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b22', 'left',5, 'b21'),('b23', 'left',5, 'b22'),('b24', 'left',5, 'b23'),('b25', 'left',5, 'b24'),('b26', 'left',5, 'b25')])
+  
+  cmds.formLayout('ArmAnim', edit=True, attachForm=[('b27','left',5),('b27','top',290),('b27', 'right',5)])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b28','left',edge),('b28','top',310),('b29','top',310),('b29','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b28', 'right',5, 50),('b29', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b29', 'left',5, 'b28')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b30','left',edge),('b30','top',340),('b31','top',340),('b31','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b30', 'right',5, 50),('b31', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b31', 'left',5, 'b30')])
+  cmds.setParent('..')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ## --- Tab 3
+  
+  cmds.formLayout('MouthEx',numberOfDivisions=100)
+  
+  cmds.text('c1', l = 'Open')
+  cmds.text('c2', l = 'Neutral')
+  cmds.text('c3', l = 'Teeth')
+  
+  cmds.button('b32', l = 'O_Full', c = 'MouthEX_OFull()' )
+  cmds.button('b33', l = 'Normal', c = 'MouthEX_Normal()')
+  cmds.button('b34', l = 'Normal', c ='MouthEX_Tnormal()')
+  
+  cmds.button('b35', l = 'Happy', c ='MouthEX_Ohappy()')
+  cmds.button('b36', l = 'Happy', c ='MouthEX_Happy()')
+  cmds.button('b37', l = 'Happy', c ='MouthEX_Thappy()')
+  
+  cmds.button('b38', l = 'Sad', c ='MouthEX_Osad()')
+  cmds.button('b39', l = 'Sad', c ='MouthEX_Sad()')
+  cmds.button('b40', l = 'Sad', c ='MouthEX_Tsad()')
+  
+  cmds.button('b41', l = 'O_Half', c ='MouthEX_OHalf()')
+  cmds.button('b42', l = 'Semi_Happy', c ='MouthEX_SemiHappy()')
+
+  cmds.text('c42', l = '-')
+  
+  cmds.button('b43', l = 'O_surprise', c ='MouthEX_Osurprise()')
+  cmds.button('b44', l = 'Semi_Sad', c ='MouthEX_SemiSad()')
+  cmds.text('b45', l = '-')
+  
+  cmds.text('b46', l = '-')
+  cmds.button('b47', l = 'R_Uhm', c ='MouthEX_RUhm()')
+  cmds.text('b48', l = '-')
+  
+  cmds.text('b49', l = '-')
+  cmds.button('b50', l = 'L_Uhm', c ='MouthEX_LUhm()')
+  cmds.text('b51', l = '-')
+  
+  
+  cmds.separator('b52', h= 20)
+  
+  cmds.button('b53', l = 'Previous Frame')
+  cmds.button('b54', l = 'Next Frame')
+  cmds.button('b55', l = 'Del KEY Frame')
+  cmds.button('b56', l = 'KEY Frame')
+  
+  ## --- FormLayout Tab 3
+ 
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('c1','left',edge),('c1','top',5),('c2','top',5),('c3','top',5),('c3','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('c1', 'right',5, 33.3),('c2', 'right',5, 66.6),('c3', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('c2', 'left',5, 'c1'),('c3', 'left',5, 'c2')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b32','left',edge),('b32','top',30),('b33','top',30),('b34','top',30),('b34','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b32', 'right',5, 33.3),('b33', 'right',5, 66.6),('b34', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b33', 'left',5, 'b32'),('b34', 'left',5, 'b33')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b35','left',edge),('b35','top',60),('b36','top',60),('b37','top',60),('b37','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b35', 'right',5, 33.3),('b36', 'right',5, 66.6),('b37', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b36', 'left',5, 'b35'),('b37', 'left',5, 'b36')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b38','left',edge),('b38','top',90),('b39','top',90),('b40','top',90),('b40','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b38', 'right',5, 33.3),('b39', 'right',5, 66.6),('b40', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b39', 'left',5, 'b38'),('b40', 'left',5, 'b39')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b41','left',edge),('b41','top',120),('b42','top',120),('c42','top',120),('c42','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b41', 'right',5, 33.3),('b42', 'right',5, 66.6),('c42', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b42', 'left',5, 'b41'),('c42', 'left',5, 'b42')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b43','left',edge),('b43','top',150),('b44','top',150),('b45','top',150),('b45','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b43', 'right',5, 33.3),('b44', 'right',5, 66.6),('b45', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b44', 'left',5, 'b43'),('b45', 'left',5, 'b44')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b46','left',edge),('b46','top',180),('b47','top',180),('b48','top',180),('b48','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b46', 'right',5, 33.3),('b47', 'right',5, 66.6),('b48', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b47', 'left',5, 'b46'),('b48', 'left',5, 'b47')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b49','left',edge),('b49','top',210),('b50','top',210),('b51','top',210),('b51','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b49', 'right',5, 33.3),('b50', 'right',5, 66.6),('b51', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b50', 'left',5, 'b49'),('b51', 'left',5, 'b50')])
+  
+  cmds.formLayout('MouthEx', edit=True, attachForm=[('b52','left',5),('b52','top',240),('b52', 'right',5)])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b53','left',edge),('b53','top',270),('b54','top',270),('b54','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b53', 'right',5, 50),('b54', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b54', 'left',5, 'b53')])
+  
+  cmds.formLayout( 'MouthEx', edit=True, attachForm=[('b55','left',edge),('b55','top',300),('b56','top',300),('b56','right',edge)])
+  cmds.formLayout( 'MouthEx', edit=True, attachPosition=[('b55', 'right',5, 50),('b56', 'right',5, 100)])
+  cmds.formLayout( 'MouthEx', edit=True, attachControl=[('b56', 'left',5, 'b55')])
+  
+  cmds.setParent('..')
+  
+  ## --- Tab 4
+  
+  cmds.formLayout('EyeEx',numberOfDivisions=100)
+  
+  cmds.text('b57', l = 'RIGHT')
+  cmds.text('b58', l = 'LEFT')
+  
+  cmds.button('b59', l = 'Normal', c='R_eye_Normal()')
+  cmds.button('b60', l = 'Normal', c='L_eye_Normal()')
+  
+  cmds.button('b61', l = 'Sad', c='R_eye_Sad()')
+  cmds.button('b62', l = 'Sad', c='L_eye_Sad()')
+  
+  cmds.button('b63', l = 'Angry', c='R_eye_Angry()')
+  cmds.button('b64', l = 'Angry', c='L_eye_Angry()')
+  
+  cmds.button('b65', l = 'Toplid', c='R_eye_TopLid()')
+  cmds.button('b66', l = 'Toplid', c='L_eye_TopLid()')
+  
+  cmds.button('b67', l = 'Botlid', c='R_eye_BotLid()')
+  cmds.button('b68', l = 'Botlid', c='L_eye_BotLid()')
+  
+  cmds.separator('b69',h=20)
+  
+  cmds.button('b70', l = 'Previous Frame')
+  cmds.button('b71', l = 'Nexy Frame')
+  cmds.button('b72', l = 'Del KEY Frame')
+  cmds.button('b73', l = 'KEY Frame')
+
+  ## --- FormLayout Tab 4
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b57','left',edge),('b57','top',5),('b58','top',5),('b58','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b57', 'right',5, 50),('b58', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b58', 'left',5, 'b57')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b59','left',edge),('b59','top',30),('b60','top',30),('b60','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b59', 'right',5, 50),('b60', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b60', 'left',5, 'b59')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b61','left',edge),('b61','top',60),('b62','top',60),('b62','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b61', 'right',5, 50),('b62', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b62', 'left',5, 'b61')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b63','left',edge),('b63','top',90),('b64','top',90),('b64','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b63', 'right',5, 50),('b64', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b64', 'left',5, 'b63')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b65','left',edge),('b65','top',120),('b66','top',120),('b66','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b65', 'right',5, 50),('b66', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b66', 'left',5, 'b65')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b67','left',edge),('b67','top',150),('b68','top',150),('b68','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b67', 'right',5, 50),('b68', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b68', 'left',5, 'b67')])
+  
+  cmds.formLayout('EyeEx', edit=True, attachForm=[('b69','left',5),('b69','top',180),('b69', 'right',5)])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b70','left',edge),('b70','top',210),('b71','top',210),('b71','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b70', 'right',5, 50),('b71', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b71', 'left',5, 'b70')])
+  
+  cmds.formLayout( 'EyeEx', edit=True, attachForm=[('b72','left',edge),('b72','top',240),('b73','top',240),('b73','right',edge)])
+  cmds.formLayout( 'EyeEx', edit=True, attachPosition=[('b72', 'right',5, 50),('b73', 'right',5, 100)])
+  cmds.formLayout( 'EyeEx', edit=True, attachControl=[('b73', 'left',5, 'b72')])
+  
+  
+  
+  
+  
+  
+  
+  
+  cmds.setParent('..')
+
+ 
+  
+  cmds.tabLayout( tabs, edit=True, tabLabel=(('GetCHA', 'Get Character'), ('ArmAnim', 'Arms & Legs'),('MouthEx', 'Mouth Expressions'), ('EyeEx', 'Eye Expressions')) )
+  cmds.showWindow()
+  cmds.scriptJob(uid=[winName, 'closeUI()'])
+  cmds.window(winName, e=True, width=500, height=190)
+
+##### CLOSE-WINDOW ####
+def closeUI():
+	if cmds.objExists('MP_Cam1PointA'):
+		cmds.delete('MP_Cam1PointA')
+	if cmds.objExists('MP_Cam1PointB'):
+		cmds.delete('MP_Cam1PointB')
+	if cmds.objExists('MP_Cam2PointA'):
+		cmds.delete('MP_Cam2PointA')
+	if cmds.objExists('MP_Cam2PointB'):
+		cmds.delete('MP_Cam2PointB')
+  
+JijiUI()
