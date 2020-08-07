@@ -1,0 +1,146 @@
+def MidPoints():
+	
+  winName = 'myWindows'
+  winTitle = 'Mid-Points'
+  winWidth = 900
+  
+  ## --- Buttons
+  
+  button1W = 120
+  button1H = 30
+  
+  ## --- Form
+  edge = 15
+  bot  = 55
+  
+  b1s = 16
+  b2s = 16 + 16 
+  b3s = 16 + 16 + 16
+  b4s = 16 + 16 +16 + 16
+  b5s = 16 + 16 +16 + 16 + 16
+
+  
+ 
+  if cmds.window(winName, exists=True):
+      cmds.deleteUI(winName)
+  cmds.window(winName,menuBar = True, title= winTitle)
+  
+  
+  tabs = cmds.tabLayout(innerMarginWidth=5, innerMarginHeight=5)
+  
+  
+  ## --- Tab One
+  
+  cmds.formLayout('GetCHA',numberOfDivisions=100)
+  
+
+  cmds.button('b1', label = 'Get Character',h=30)
+  cmds.textField('b2', tx= 'no Character',h=30)
+  cmds.separator('b3',h=20)
+  cmds.button('b4', label = 'Parent All',h=30)
+  
+  
+  
+  ## --- FormLayout Tab 1
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b1','left',5),('b1','top',5),('b2', 'top',5),('b2','right',5)])
+  cmds.formLayout('GetCHA', edit=True, attachPosition=[('b1', 'right',5, 50),('b2', 'right',5, 100)])                     
+  cmds.formLayout('GetCHA', edit=True, attachControl=[('b2', 'left',5, 'b1')])
+  
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b3','left',5),('b3','top',40),('b3', 'right',5)])
+  
+  cmds.formLayout('GetCHA', edit=True, attachForm=[('b4','left',5),('b4','top',60),('b4', 'right',5)])
+ 
+  
+  cmds.setParent('..')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ## --- Tab 2
+
+  cmds.formLayout('ArmAnim',numberOfDivisions=100)
+  
+  ## --- Modelling
+  cmds.text('b12', l = 'Manual Modelling')
+  cmds.text('b13', l = 'Select Points')
+  cmds.text('b14', l = 'Select Faces')
+  cmds.button('b15', l = 'Create Face', c = 'CreateFACE()')
+  cmds.button('b16', l = 'Merge Faces', c = 'MergeFACE()')
+  ## --- Separetor
+  cmds.separator('b17',h =5)
+  ## --- Quad-Draw
+  cmds.text('b18', l = 'Quad-Draw')
+  cmds.button('b19', l = 'Convert Points/Update Points', c = 'CovertToDraw()')
+
+  ## --- FormLayout Tab 2
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b12','left',edge),('b12','top',edge),('b12','right',edge)])
+
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b13','left',edge),('b13','top',40),('b14','top',40),('b14','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b13', 'right',5, 50),('b14', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b14', 'left',5, 'b13')])
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b15','left',edge),('b15','top',55),('b16','top',55),('b16','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachPosition=[('b15', 'right',5, 50),('b16', 'right',5, 100)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachControl=[('b16', 'left',5, 'b15')])
+
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b17','left',85),('b17','top',85),('b17','right',85)])
+
+  
+  
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b18','left',edge),('b18','top',100),('b18','right',edge)])
+  cmds.formLayout( 'ArmAnim', edit=True, attachForm=[('b19','left',edge),('b19','top',120),('b19','right',edge)])
+
+
+  
+  cmds.setParent('..')
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #-
+  
+  cmds.formLayout('MouthEx',numberOfDivisions=100)
+  
+  cmds.setParent('..')
+  
+  #-
+  
+  cmds.formLayout('EyeEx',numberOfDivisions=100)
+  
+  cmds.setParent('..')
+
+ 
+  
+  cmds.tabLayout( tabs, edit=True, tabLabel=(('GetCHA', 'Get Character'), ('ArmAnim', 'Arms Anim'),('MouthEx', 'Mouth Expressions'), ('EyeEx', 'Eye Expressions')) )
+  cmds.showWindow()
+  cmds.scriptJob(uid=[winName, 'closeUI()'])
+  cmds.window(winName, e=True, width=900, height=190)
+
+##### CLOSE-WINDOW ####
+def closeUI():
+	if cmds.objExists('MP_Cam1PointA'):
+		cmds.delete('MP_Cam1PointA')
+	if cmds.objExists('MP_Cam1PointB'):
+		cmds.delete('MP_Cam1PointB')
+	if cmds.objExists('MP_Cam2PointA'):
+		cmds.delete('MP_Cam2PointA')
+	if cmds.objExists('MP_Cam2PointB'):
+		cmds.delete('MP_Cam2PointB')
+  
+MidPoints()
